@@ -18,15 +18,38 @@
             height: 100%;
         }
         
-        #addclubmem{ 
-            color: #F9C050;
+        .container{ 
+            color: black;
             border-radius: 10px;
-            background-color: #005F73;
-            padding: 20px;
+            background-color: #F1FFCC;
+            padding-bottom: 20px;
             margin: auto;
             margin-top: 10%;
-            width: 80%;
+            margin-bottom: 10%;
+            width: 60%;
             box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52);
+        }
+
+        #header{
+            color: #EAEA3D;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            padding-top: 20px;
+            text-align: center;
+            background-color: #1C5434;
+            padding: 20px;
+        }
+
+        #instructions{
+            background-color: #297a4c71;
+            padding: 10px;
+            border-radius: 5px;
+            color: rgb(67, 66, 66);
+        }
+
+        #formbox{
+            display: inline-block;
+            text-align: left;
         }
 
         .button {
@@ -51,49 +74,47 @@
             display: block;
             width: 100%;
             border-radius: 5px;
-            background-color: #47c2af;
-            color: #474929;
+            background-color:  rgb(41, 131, 38);
+            color: #EAEA3D;
             font-weight: bold;
             height: 50px;
-        }
-
-        #output1{
-            color: #F9C050;
-            border-radius: 10px;
-            background-color: #005F73;
-            padding: 20px;
-            margin: auto;
-            margin-bottom: 10%;
-            width: 80%;
-            box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="row" id="addclubmem">
+        <div class="row" id="header">
             <div class="col-lg-12">
                 <h1>Non-Metal Elements</h1>
                 <h5>Periodic Table Information Finder</h5>
-                
-                <br>
-
-                <form>
-                    <label for="elements">Enter A Country Code:</label>
-                    <br>
-                    <input type="text" id="nonmetals" class="form-control">
-                    <br>
-                    <button type="button" class="btn btn-warning" py-click="check_element">Check</button>
-                </form>
             </div>
         </div>
 
         <br>
 
-        <div class="row">
-            <div class="col-lg-7" id="output1"><b>(Information WIll be shown here)</b></div>
+        <div class="col" id="formbox">
+
+            <div id="instructions">
+                <h5><b>Instructions:</b></h5>
+                <p>Enter the <b>symbol</b> of a non-metal element (Example: H, O, Ne, Xe)</p>
+            </div>
+
+            <br>
+        
+            <form>
+                <label for="nonmetals">🔍 Element Symbol:</label>
+                <br>
+                <input type="text" id="nonmetals" class="form-control">
+                <br>
+                <button type="button" class="btn" py-click="check_element">Check</button>
+            </form>
+
+        <br><br>
+
+            <h5>📋Result:</h5>
+                <div id="output1"></div>
         </div>
     </div>
-     <script type="py" src="main.py"></script>
+    <script type="py" src="main.py"></script>
 </body>
 </html>
