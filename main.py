@@ -1,6 +1,8 @@
 from pyscript import document, display
 
 def check_element(e):
+    document.getElementById("output1").innerHTML = "" # clears previous result
+
     nonmetals = {
         "H" : ("Hydrogen", 1, 1.008), 
         "He" : ("Helium", 2, 4.0026), 
@@ -18,17 +20,16 @@ def check_element(e):
         "Kr" : ("Krypton", 36, 83.798), 
         "I" : ("Iodine", 53, 126.90), 
         "Xe" : ("Xenon", 54, 131.29), 
-        "Re" : ("Radon", 86, 222),    
+        "Rn" : ("Radon", 86, 222),    
     }
 
-    element_Name = document.getElementById("elements").value
+    element_name = document.getElementById("nonmetals").value
+    element_name_final = element_name.title()
 
-    var2 = dict.get(element_Name, ("Element not found" , " - " , " - "))
+    result = nonmetals.get(element_name_final, ("Element not found" , " - " , " - "))
 
-    document.getElementById("div_name").innerHTML = f"""
-    Symbol: {element_Name}
-    Element: {var2[0]}
-    Atomic Number: {var2[1]}
-    Atomic Mass: {var2[2]} """
-
-    display(nonmetals.get(element_Name, "Country code not found"), target="output1")
+    document.getElementById("output1").innerHTML = f"""
+    <b>Symbol:</b> {element_name_final}<br>
+    <b>Element:</b> {result[0]}<br>
+    <b>Atomic Number:</b> {result[1]}<br>
+    <b>Atomic Mass:</b> {result[2]} """
